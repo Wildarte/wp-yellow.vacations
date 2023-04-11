@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Yellow Vacations</title>
-</head>
-<body>
-    
-    <header class="header">
-        <div class="container content_header d-flex">
-            <div class="logo_header">
-                <a href="">
-                    <img src="assets/img/logo-yellow.png" alt="">
-                </a>
-            </div>
-            <nav class="menu">
-                <ul>
-                    <li><a href="">como funciona</a></li>
-                    <li><a href="">como funciona</a></li>
-                    <li><a href="">como funciona</a></li>
-                    <li><a href="">como funciona</a></li>
-                </ul>
 
-                <a href="" class="btn-default btn-blue">Saiba Mais</a>
-            </nav>
-        </div>
-    </header>
+<?php get_header();
+//Template Name: Home
+?>
 
     <main>
 
@@ -284,8 +254,8 @@
                     <h3>Sobre</h3>
                     <p>Nós somos entusiastas da administração e buscamos proporcionar vivências inesquecíveis aos visitantes.</p>
                 </div>
-                <img class="img_fixed_about" src="assets/img/about.png" alt="">
-                <img class="float_img_about" src="assets/img/dots-2.png" alt="">
+                <img class="img_fixed_about" src="<?= get_template_directory_uri(); ?>/assets/img/about.png" alt="">
+                <img class="float_img_about" src="<?= get_template_directory_uri(); ?>/assets/img/dots-2.png" alt="">
               </div>
             </div>
         </section>
@@ -357,77 +327,4 @@
 
     </main>
 
-    <footer class="footer">
-        <div class="container d-flex content_footer">
-            <div class="f-100 text-center logo_footer">
-                <img src="assets/img/yellow-logo-clean.png" alt="">
-            </div>
-            <div class="f-25 col_footer">
-                <h3>Quer saber mais?</h3>
-
-                <p>Entre em contato conosco no telefone +1 (407) 683-2878 ou +1 (407) 724-5516. Ou se prefirir, nos envie uma mensagem através do formulário abaixo.</p>
-            </div>
-            <div class="f-25 social_footer col_footer">
-                <h3>Redes Sociais</h3>
-
-                <div class="list_social ">
-                    <a href=""><i class="bi bi-facebook"></i> Facebook</a>
-                    <a href=""><i class="bi bi-instagram"></i> Instagram</a>
-                </div>
-            </div>
-            <div class="f-25 col_footer">
-                <h3>Escritório</h3>
-
-                <p>9852 Emerald Berry Dr Winter Garden, FL 34787</p>
-                <p><a href="mailto:hello@yellow.vacations"><i class="bi bi-envelope"></i> hello@yellow.vacations</a></p>
-                <p><a href="Tel:+14076832878"><i class="bi bi-telephone"></i> +1 (407) 683-2878</a></p>
-                </p>
-            </div>
-            <div class="f-25 col_footer">
-                <h3>Quer Trabalhar Conosco?</h3>
-
-                <p>A YELLOW.vacations está crescendo e estamos buscando profissionais apaixonados por criar experiências únicas aos nossos hóspedes. Nos envie seu currículo junto com uma carta se apresentando para: <a href="mailto:team@yellow.vacations">team@yellow.vacations</a></p>
-            </div>
-        </div>
-        <div class="bottom_footer">
-            <div class="container d-flex">
-                <div class="f-50">
-                    <p>© 2023 Todos os direitos reservados</p>
-                </div>
-    
-                <div class="f-50">
-                    <p></p>
-                </div>
-            </div>
-            
-        </div>
-    </footer>
-
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script>
-        $(document).ready(function(){
-            $(".owl-carousel").owlCarousel({
-                loop:true,
-                margin:10,
-                nav:true,
-                autoplay:true,
-                autoplayTimeout:4000,
-                autoplayHoverPause:true,
-                responsive:{
-                    0:{
-                        items:1
-                    },
-                    600:{
-                        items:1
-                    },
-                    1000:{
-                        items:2
-                    }
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+<?php get_footer(); ?>
