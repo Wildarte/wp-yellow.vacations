@@ -72,7 +72,7 @@
             </div>
         </section>
 
-        <section class="services">
+        <section class="services" id="services">
             <div class="content_services">
                 <header class="container head_services">
                     <h2 class="title-sec text-center">Conheça nossos serviços</h2>
@@ -128,97 +128,41 @@
             </div>
         </section>
 
-        <section class="section_imovel">
+        <section class="section_imovel" id="imoveis">
             <div class="container">
                 <header class="head_imoveis_list">
                     <h2 class="title-sec text-center">Alguns imóveis em destaque</h2>
                 </header>
 
                 <section class="imoveis_list">
+                    <?php
+
+                        $args = [
+                            'post_type' => 'post',
+                            'post_per_page' => 8
+                        ];
+
+                        $result_imoveis = new WP_Query($args);
+
+                        if($result_imoveis->have_posts()):
+                            while($result_imoveis->have_posts()):
+                                $result_imoveis->the_post();
+
+                    ?>
                     <article class="card_imovel">
-                        <a href="">
-                            <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg" alt="">
+                        <a href="<?= get_the_permalink(); ?>">
+                            <img src="<?= get_the_post_thumbnail_url(null, 'medium'); ?>" alt="">
                             <div class="info_card_imovel">
-                                <h4>South Padre Island, Texas</h4>
+                                <h4><?= get_the_title(); ?></h4>
 
                                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint nemo voluptates repudiandae, hic dolorem molestiae perspiciatis recusandae cum autem totam.</p>
                             </div>
                         </a>
                     </article>
 
-                    <article class="card_imovel">
-                        <a href="">
-                            <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg" alt="">
-                            <div class="info_card_imovel">
-                                <h4>South Padre Island, Texas</h4>
+                    <?php endwhile; endif; wp_reset_query(); ?>
 
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint nemo voluptates repudiandae, hic dolorem molestiae perspiciatis recusandae cum autem totam.</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="card_imovel">
-                        <a href="">
-                            <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg" alt="">
-                            <div class="info_card_imovel">
-                                <h4>South Padre Island, Texas</h4>
-
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint nemo voluptates repudiandae, hic dolorem molestiae perspiciatis recusandae cum autem totam.</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="card_imovel">
-                        <a href="">
-                            <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg" alt="">
-                            <div class="info_card_imovel">
-                                <h4>South Padre Island, Texas</h4>
-
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint nemo voluptates repudiandae, hic dolorem molestiae perspiciatis recusandae cum autem totam.</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="card_imovel">
-                        <a href="">
-                            <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg" alt="">
-                            <div class="info_card_imovel">
-                                <h4>South Padre Island, Texas</h4>
-
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint nemo voluptates repudiandae, hic dolorem molestiae perspiciatis recusandae cum autem totam.</p>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="card_imovel">
-                        <a href="">
-                            <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg" alt="">
-                            <div class="info_card_imovel">
-                                <h4>South Padre Island, Texas</h4>
-
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint nemo voluptates repudiandae, hic dolorem molestiae perspiciatis recusandae cum autem totam.</p>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="card_imovel">
-                        <a href="">
-                            <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg" alt="">
-                            <div class="info_card_imovel">
-                                <h4>South Padre Island, Texas</h4>
-
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint nemo voluptates repudiandae, hic dolorem molestiae perspiciatis recusandae cum autem totam.</p>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="card_imovel">
-                        <a href="">
-                            <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg" alt="">
-                            <div class="info_card_imovel">
-                                <h4>South Padre Island, Texas</h4>
-
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint nemo voluptates repudiandae, hic dolorem molestiae perspiciatis recusandae cum autem totam.</p>
-                            </div>
-                        </a>
-                    </article>
+                    
                 </section>
 
 
@@ -234,7 +178,7 @@
             </div>
         </section>
 
-        <section class="sec_about">
+        <section class="sec_about" id="sobre">
             <div class="container d-flex">
               <div class="f-50 left_about">
                 <h2 class="title-sec">Somos apaixonados por gestão e criar experiências memoráveis para hóspedes.</h2>
@@ -267,7 +211,7 @@
             </div>
         </section>
 
-        <section class="sec-default">
+        <section class="sec-default" id="depoimentos">
             <div class="container">
                 <header class="head_dep">
                     <h2 class="title-sec text-center">Sua casa, nossa hospitalidade.</h2>
@@ -306,7 +250,35 @@
             </div>
         </section>
 
-        <section class="sec_contato">
+
+        <script src="<?= get_template_directory_uri(); ?>/assets/js/jquery-3.6.0.min.js"></script>
+        <script>
+
+            $(document).ready(function(){
+                $(".section_dep").owlCarousel({
+                    loop:true,
+                    margin:10,
+                    nav:true,
+                    autoplay:true,
+                    autoplayTimeout:4000,
+                    autoplayHoverPause:true,
+                    responsive:{
+                        0:{
+                            items:1
+                        },
+                        600:{
+                            items:1
+                        },
+                        1000:{
+                            items:2
+                        }
+                    }
+                });
+            });
+
+        </script>
+
+        <section class="sec_contato" id="contato">
             <div class="container d-flex content_contato">
                 <div class="f-50 left_contato">
                     <img src="" alt="">

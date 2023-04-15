@@ -12,6 +12,7 @@ function load_scripts(){
     wp_enqueue_style('css-theme-default-carousel', get_template_directory_uri().'/assets/css/owl.theme.default.min.css', [], '1.0', 'all');
     wp_enqueue_style('css-reset', get_template_directory_uri().'/assets/css/reset.css', [], '1.0', 'all');
     wp_enqueue_style('css-style', get_template_directory_uri().'/assets/css/style.css', [], '1.0', 'all');
+    wp_enqueue_style('css-post', get_template_directory_uri().'/assets/css/post.css', [], '1.0', 'all');
 
 }
 add_action('wp_enqueue_scripts', 'load_scripts');
