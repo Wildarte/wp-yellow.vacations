@@ -658,4 +658,87 @@ footer.footer{
     .logo_header{
         width: 190px;
     }
+    .hero{
+        height: auto;
+    }
+    .left_hero{
+        padding: 80px 10px;
+    }
+    .img_fixed_about{
+        margin-right: 0;
+        width: 100%;
+    }
+    .over_about_right{
+        right: 0;
+    }
+}
+
+@media(max-width: 420px){
+    .title-main{
+        font-size: 1.3em;
+    }
+    .desc-default{
+        font-size: 1.1em;
+    }
+    .card_feat{
+        flex-basis: calc(100% - 20px);
+    }
+    .services{
+        padding: 40px 10px;
+    }
+    .title-sec{
+        font-size: 1.4em;
+    }
+    .card_service_back{
+        font-size: 1em;
+    }
+    .card_imovel{
+        flex-basis: calc(100% - 10px);
+    }
+    .section_imovel{
+        padding: 20px 10px 40px;
+    }
+    .ban{
+        margin: 20px 0;
+    }
+    .sec_about{
+        padding: 40px 10px;
+    }
+    .left_about p{
+        font-size: 1em;
+    }
+    .left_about{
+        justify-content: center;
+    }
+    .over_about_right h3{
+        font-size: 1.3em;
+    }
+    .over_about_right p{
+        font-size: 1.1em;
+    }
+    .over_about_right{
+        width: 160px;
+        height: auto;
+    }
+    .btn_cta{
+        font-size: 1em;
+    }
+    .card_dep{
+        flex-wrap: wrap;
+        padding: 0;
+    }
+    .card_dep .photo_dep{
+        width: 100%;
+    }
+    .card_dep .text_dep{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .text_desc p{
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+    .title-sec{
+        font-size: 1.2em;
+    }
 }

@@ -220,23 +220,23 @@
                 <section class="owl-carousel section_dep">
                     <article class="card_dep">
                         <div class="photo_dep">
-                            <img src="https://cdn.pixabay.com/photo/2016/03/27/21/52/woman-1284411_960_720.jpg" alt="">
-                            <h3>Yago Carvalho</h3>
+                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="">
+                            <h3>Tim, Joplin, MO</h3>
                         </div>
 
                         <div class="text_dep">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias dolorem eaque nesciunt repudiandae possimus sunt debitis, tenetur, libero inventore eos ipsa, at omnis expedita sit dignissimos autem quam? Rerum minus quis quod quidem, excepturi sint perferendis tempore eaque ipsum omnis.
+                        This place was more than perfect for our family of 5! The pool was a great feature, giving our kids hours of fun, and all the TVs have Netflix and Prime. Plenty of towels and and extra ones for the pool. Definitely would stay here again!
                         </div>
                     </article>
 
                     <article class="card_dep">
                         <div class="photo_dep">
-                            <img src="https://cdn.pixabay.com/photo/2016/03/27/21/52/woman-1284411_960_720.jpg" alt="">
-                            <h3>Yago Carvalho</h3>
+                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="">
+                            <h3>Tim, Joplin, MO</h3>
                         </div>
 
                         <div class="text_dep">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias dolorem eaque nesciunt repudiandae possimus sunt debitis, tenetur, libero inventore eos ipsa, at omnis expedita sit dignissimos autem quam? Rerum minus quis quod quidem, excepturi sint perferendis tempore eaque ipsum omnis.
+                        This place was more than perfect for our family of 5! The pool was a great feature, giving our kids hours of fun, and all the TVs have Netflix and Prime. Plenty of towels and and extra ones for the pool. Definitely would stay here again!
                         </div>
                     </article>
                 </section>
@@ -244,7 +244,6 @@
                 <div class="text_desc">
                     <p>Estamos sempre aprimorando nossos serviços para proporcionar experiências únicas e rentáveis em Orlando.<br>
                         Conte com nossa equipe apaixonada e experiente para investir em uma casa de férias com confiança.</p>
-
 
                 </div>
             </div>
@@ -258,7 +257,7 @@
                 $(".section_dep").owlCarousel({
                     loop:true,
                     margin:10,
-                    nav:true,
+                    nav:false,
                     autoplay:true,
                     autoplayTimeout:4000,
                     autoplayHoverPause:true,
@@ -270,7 +269,7 @@
                             items:1
                         },
                         1000:{
-                            items:2
+                            items:1
                         }
                     }
                 });
