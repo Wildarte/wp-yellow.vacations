@@ -76,6 +76,9 @@
 .imoveis_related .card_imovel img{
     height: 280px;
 }
+.info_home ol{
+    margin-left: 20px;
+}
 
 
 @media(max-width: 768px){

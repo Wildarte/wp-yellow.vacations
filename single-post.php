@@ -1,26 +1,32 @@
 <?php get_header(); ?>
+<?php if(have_posts()): while(have_posts()): the_post();
 
+
+?>
 <main>
     <section class="head_single">
-        <h2>Casa de Campo</h2>
+        <h2><?= get_the_title(); ?></h2>
     </section>
     <section class="container">
         <div class="carousel_imovel owl-carousel">
-            <img src="https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070_960_720.jpg" alt="">
-            <img src="https://cdn.pixabay.com/photo/2017/08/27/10/16/interior-2685521_960_720.jpg" alt="">
-            <img src="https://cdn.pixabay.com/photo/2017/01/07/17/48/interior-1961070_960_720.jpg" alt="">
-            <img src="https://cdn.pixabay.com/photo/2016/12/30/07/59/kitchen-1940174_960_720.jpg" alt="">
+            <?php
+
+            $gallery = get_post_meta(get_the_ID(), 'field_gallery', true);
+
+            foreach ( (array) $gallery as $attachment_id => $attachment_url ) {
+
+                echo wp_get_attachment_image( $attachment_id, 'large' );
+
+            }
+
+            ?>
         </div>
     </section>
 
     <section class="container info_home">
         <h3 class="title_info_home">Descrição</h3>
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis incidunt assumenda similique, quaerat esse saepe aperiam unde cumque pariatur veritatis voluptatem iusto omnis fugit nam molestias, veniam alias vitae consectetur, dicta molestiae quis amet. Ipsum voluptas voluptate accusamus quasi placeat.</p>
-        
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil aperiam odit sapiente fugiat tempora quam eaque sed aliquam voluptatibus amet error perspiciatis enim ipsa magni, officia possimus fugit sit omnis nulla molestias commodi. Minus, sunt.</p>
-
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quae odit libero, nostrum voluptatem maiores quidem laboriosam possimus eos aperiam sit exercitationem corporis non aliquid, qui officiis porro delectus perspiciatis ad debitis consequuntur dolorum assumenda repellendus. Maxime voluptatibus ex nesciunt voluptas doloremque iusto perspiciatis alias, minima, tempore nam dolor rem.</p>
+        <?php the_content(); ?>
 
         <div class="d-flex text-center btn_text_desc">
             <a href="" class="btn-default">Gostei do imóvel</a>
@@ -31,39 +37,46 @@
 
         <h3 class="title_info_home">Imóveis semelhantes</h3>
 
+      
+
         <section class="imoveis_list">
-            <article class="card_imovel">
-                <a href="">
-                    <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg" alt="">
-                    <div class="info_card_imovel">
-                        <h4>South Padre Island, Texas</h4>
 
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint nemo voluptates repudiandae, hic dolorem molestiae perspiciatis recusandae cum autem totam.</p>
+            <?php
+
+                $args = [
+                    'post_type' => 'post',
+                    'posts_per_page' => 3
+                ];
+
+                $results = new WP_Query($args);
+
+                if($results->have_posts()):
+                    while($results->have_posts()):
+                        $results->  the_post();
+                        $files = get_post_meta( get_the_ID(), 'field_gallery', true );
+            ?>
+
+            <article class="card_imovel">
+                <a href="<?= get_the_permalink(); ?>">
+                        
+                        <?php
+
+                            if ( !empty( $files ) ) {
+                            $first_file = reset( $files );
+                            
+                            }
+                        ?>
+
+                    <img src="<?= $first_file ?>" alt="">
+                    <div class="">
+                        <h4><?= get_the_title(); ?></h4>
+
+                        <p><?= get_the_excerpt(); ?></p>
                     </div>
                 </a>
             </article>
 
-            <article class="card_imovel">
-                <a href="">
-                    <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg" alt="">
-                    <div class="info_card_imovel">
-                        <h4>South Padre Island, Texas</h4>
-
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint nemo voluptates repudiandae, hic dolorem molestiae perspiciatis recusandae cum autem totam.</p>
-                    </div>
-                </a>
-            </article>
-
-            <article class="card_imovel">
-                <a href="">
-                    <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg" alt="">
-                    <div class="info_card_imovel">
-                        <h4>South Padre Island, Texas</h4>
-
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint nemo voluptates repudiandae, hic dolorem molestiae perspiciatis recusandae cum autem totam.</p>
-                    </div>
-                </a>
-            </article>
+            <?php endwhile; endif; wp_reset_query() ?>
 
         </section>
 
@@ -96,4 +109,5 @@
     });
 
 </script>
+<?php endwhile; endif; ?>
 <?php get_footer(); ?>

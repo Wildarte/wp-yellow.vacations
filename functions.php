@@ -161,7 +161,8 @@ function get_id_by_template_name($template_name){
 }
 
 
-include('admin/fields.php')
+include('admin/fields.php');
+include('admin/cmb2-post.php');
 
 
 ?>

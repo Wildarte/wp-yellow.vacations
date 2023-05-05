@@ -148,14 +148,25 @@
                             while($result_imoveis->have_posts()):
                                 $result_imoveis->the_post();
 
+                                $files = get_post_meta( get_the_ID(), 'field_gallery', true );
+                                
+                
                     ?>
                     <article class="card_imovel">
                         <a href="<?= get_the_permalink(); ?>">
-                            <img src="<?= get_the_post_thumbnail_url(null, 'medium'); ?>" alt="">
+                        <?php
+                        
+
+                        if ( !empty( $files ) ) {
+                          $first_file = reset( $files );
+                          
+                        }
+                        ?>
+                            <img src="<?= $first_file; ?>" alt="">
                             <div class="info_card_imovel">
                                 <h4><?= get_the_title(); ?></h4>
 
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint nemo voluptates repudiandae, hic dolorem molestiae perspiciatis recusandae cum autem totam.</p>
+                                <p><?= get_the_excerpt(); ?></p>
                             </div>
                         </a>
                     </article>
@@ -167,7 +178,7 @@
 
 
                 <div class="d-flex text-center btn_text_desc">
-                    <a href="" class="btn-default">Ver Todos os Imóveis</a>
+                    <a href="<?= home_url(); ?>/imoveis" class="btn-default">Ver Todos os Imóveis</a>
                 </div>
             </div>
         </section>
